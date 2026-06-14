@@ -14,24 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-/**
- * Plugin Constants
- */
 define( 'APD_VERSION', '0.1.0-alpha' );
 define( 'APD_PLUGIN_FILE', __FILE__ );
 define( 'APD_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'APD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-/**
- * Load Admin Class
- */
 require_once APD_PLUGIN_PATH . 'includes/class-admin.php';
+require_once APD_PLUGIN_PATH . 'includes/class-importer.php';
 
-/**
- * Initialize Plugin
- */
 function apd_init() {
+
     new APD_Admin();
+
+    new APD_Importer();
 }
 
 add_action( 'plugins_loaded', 'apd_init' );
